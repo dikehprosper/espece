@@ -30,14 +30,14 @@ export async function POST(request: NextRequest) {
       return countPendingA - countPendingB;
     });
 
-    // Log the sorted subadmins and individual counts
-    console.log("Sorted Subadmins:", sortedSubadmins);
-    sortedSubadmins.forEach((subadmin) => {
-      console.log(
-        `${subadmin.fullname}'s Pending Transaction Count:`,
-        countPendingTransactions(subadmin)
-      );
-    });
+    // // Log the sorted subadmins and individual counts
+    // console.log("Sorted Subadmins:", sortedSubadmins);
+    // sortedSubadmins.forEach((subadmin) => {
+    //   console.log(
+    //     `${subadmin.fullname}'s Pending Transaction Count:`,
+    //     countPendingTransactions(subadmin)
+    //   );
+    // });
 
     const subadminWithLowestPendingCount = sortedSubadmins[0];
 
@@ -47,15 +47,15 @@ export async function POST(request: NextRequest) {
     const subadminWithLowestPendingCountAddress =
       subadminWithLowestPendingCount?.cashdeskAddress;
 
-    console.log(
-      "Subadmin with the lowest count id:",
-      subadminWithLowestPendingCountId
-    );
-    console.log(
-      "Subadmin with the lowest count address:",
-      subadminWithLowestPendingCountAddress
-    );
-    console.log("bbbb");
+    // console.log(
+    //   "Subadmin with the lowest count id:",
+    //   subadminWithLowestPendingCountId
+    // );
+    // console.log(
+    //   "Subadmin with the lowest count address:",
+    //   subadminWithLowestPendingCountAddress
+    // );
+    // console.log("bbbbbbbbbbbbb");
 
     const response = NextResponse.json({
       message: "successful",
@@ -63,6 +63,7 @@ export async function POST(request: NextRequest) {
       subadminWithLowestPendingCountId,
       subadminWithLowestPendingCountAddress,
     });
+
 
     // Return the response or use it as needed
     return response;
